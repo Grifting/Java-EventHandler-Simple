@@ -8,7 +8,7 @@ Execute right in the constructor of you object:
 
 EventHandler.addListener({THE EVENT CLASS}, this);
 
-and implement the EventListener.
+and implement the EventListener interface.
 To register an object as an active event-listener.
 
 
