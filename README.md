@@ -1,7 +1,7 @@
 # Java-EventHandler-Simple
 
 This is a simple EventBus System implemented in Java.
-Includes the EventBus with some ExampleEvents in the lib folder
+Including the EventBus with some ExampleEvents in the lib folder
 and code examples in the example folder.
 Look at the ExampleRun, ExampleEvent and ExampleListener for more specific examples.
 
