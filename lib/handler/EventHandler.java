@@ -1,4 +1,4 @@
-package net.grifting.events.handler;
+package lib.handler;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -7,13 +7,21 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 
-import net.grifting.events.DebugEvent;
-import net.grifting.events.Event;
+import lib.DebugEvent;
+import lib.Event;
 
 public class EventHandler
 {
+	/*
+	 * stores the EventListener and which event an object listens to
+	 */
 	private static Map<EventListener, Set<Class<? extends Event>>> listenerSets = new HashMap<>();
-
+	
+	/*
+	 * fires an synchron event
+	 * 
+	 * @param e an instatiated event object
+	 */
 	public static void fireEvent(Event e)
 	{
 		synchronized (listenerSets)
@@ -28,7 +36,13 @@ public class EventHandler
 			}
 		}
 	}
-
+	
+	/*
+	 * to subscribe to an specific event
+	 * 
+	 * @param eventToNitify an class which is an event
+	 * @param listener an object which is an eventListener
+	 */
 	public static synchronized void addListener(Class<? extends Event> eventToNotify, EventListener listener)
 	{
 		if (hasListener(listener))
@@ -50,26 +64,47 @@ public class EventHandler
 						+ " more event(s)"));
 	}
 
+	/*
+	 * an method which checks if an instatiated object listenes for events
+	 * 
+	 * @param listener an instatiated eventListener
+	 * @return bool true when it subscribed to events false when not
+	 */
 	public static synchronized Boolean hasListener(EventListener listener)
 	{
 		return (listenerSets.containsKey(listener)) ? true : false;
 	}
+	
+	// ToDo: check if an listener listenes for an specific event
 
+	/*
+	 * removes an active eventlistener complete frome the events
+	 * 
+	 * @param  listener an active eventListener object
+	 * 
+	 */
 	public static synchronized void removeListener(EventListener listener)
 	{
 		if (hasListener(listener))
 			listenerSets.remove(listener);
 	}
+	
+	// ToDo: unsubscribe from specific events
 
 	// private static List<EventThread> eventThreads = new ArrayList<>();
 	
+	/*
+	 * fires an asynchronic event, by creating an event handler thread
+	 * 
+	 * @param e an instatiated event object
+	 */
 	public static synchronized void fireAsyncEvent(Event e)
 	{
 		EventThread et = new EventThread(e);
 		// eventThreads.add(et);
 		et.start();
 	}
-
+	
 	static class EventThread extends Thread
 	{
 		private Event e;

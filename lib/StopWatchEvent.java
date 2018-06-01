@@ -1,4 +1,4 @@
-package net.grifting.events;
+package lib;
 
 public class StopWatchEvent extends Event
 {

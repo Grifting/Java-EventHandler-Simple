@@ -1,4 +1,4 @@
-package net.grifting.events;
+package lib;
 
 import java.awt.event.MouseEvent;
 
