@@ -48,8 +48,8 @@ public class DebugEvent extends Event
 	public enum State 
 	{
 		INFO 		(new Color(0,0,0), new Color(255,255,255)), // for useful information
-		REFLECTION 	(new Color(55,55,255), new Color(255,255,255)), // for optimasition purposes (like execution of method x took x ns)
-		INCOMPLETE 	(new Color(55,55,255), new Color(255,255,255)), // if a task started and is incomplete
+		REFLECTION 	(new Color(55,55,255), new Color(255,255,255)), // for optimization purposes (like execution of method x took x ns)
+		INCOMPLETE 	(new Color(55,55,255), new Color(255,255,255)), // if a task is running and still incomplete
 		SUCCESSFUL 	(new Color(25,215,25), new Color(255,255,255)),
 		WARNING 		(new Color(245,215,0), new Color(255,255,255)),
 		DENIED 		(new Color(215,25,25), new Color(255,255,255)),
