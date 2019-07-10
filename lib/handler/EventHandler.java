@@ -40,7 +40,7 @@ public class EventHandler
 	/*
 	 * to subscribe to an specific event
 	 * 
-	 * @param eventToNitify an class which is an event
+	 * @param eventToNotify a class which is an event
 	 * @param listener an object which is an eventListener
 	 */
 	public static synchronized void addListener(Class<? extends Event> eventToNotify, EventListener listener)
@@ -65,7 +65,7 @@ public class EventHandler
 	}
 
 	/*
-	 * an method which checks if an instatiated object listenes for events
+	 * a method which checks if an instatiated object listenes for events
 	 * 
 	 * @param listener an instatiated eventListener
 	 * @return bool true when it subscribed to events false when not
@@ -78,7 +78,7 @@ public class EventHandler
 	// ToDo: check if an listener listenes for an specific event
 
 	/*
-	 * removes an active eventlistener complete frome the events
+	 * removes an active eventlistener completely from the events
 	 * 
 	 * @param  listener an active eventListener object
 	 * 
@@ -94,7 +94,7 @@ public class EventHandler
 	// private static List<EventThread> eventThreads = new ArrayList<>();
 	
 	/*
-	 * fires an asynchronic event, by creating an event handler thread
+	 * fires an asynchronous event, by creating an event handler thread
 	 * 
 	 * @param e an instatiated event object
 	 */
